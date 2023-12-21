@@ -66,7 +66,12 @@ const teamSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-});
+  pointsEarned: {
+    type: String,
+    default: "0",
+    trim: true,
+  },
+},{ timestamps: true });
 
 
 const Team = mongoose.model('Teams', teamSchema);

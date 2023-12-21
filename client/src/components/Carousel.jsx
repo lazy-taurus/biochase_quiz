@@ -2,9 +2,9 @@ import { Carousel } from "@material-tailwind/react";
  
 export function CarouselDefault() {
   return (
-    <Carousel className="rounded-xl w-[100vw] overflow-x-hidden">
+    <Carousel className="rounded-xl w-[100%] overflow-x-hidden">
       <img
-        src="https://res.cloudinary.com/diyxwdtjd/image/upload/v1701763717/projects/3d-medical-background-with-virus-cells-dna-strand_pwc7ie.jpg"
+        src="https://res.cloudinary.com/diyxwdtjd/image/upload/v1703147231/projects/Your_paragraph_text_vu4lpc.png"
         alt="image 1"
         className="h-[100vh] w-[100vw] object-cover"
       />

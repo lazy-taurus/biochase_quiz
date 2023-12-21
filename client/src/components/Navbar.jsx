@@ -82,13 +82,13 @@ export function Nav() {
  
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2 bg-transparent">
-      <div className="flex items-center justify-between text-white">
+      <div className="flex items-center justify-between text-black">
         <Typography
           as="p"
-          variant="h6"
+          variant="h5"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2"
         >
-          <Link to="/">Material Tailwind</Link>
+          <Link to="/">MOKSHA</Link>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
