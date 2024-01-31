@@ -1,0 +1,33 @@
+
+@import url(https://db.onlinewebfonts.com/c/03af38e6d90add293d43f1ef74ce755f?family=Adieu+Regular);
+@import url(https://db.onlinewebfonts.com/c/03af38e6d90add293d43f1ef74ce755f?family=Adieu+Bold);
+.App-logo {
+  height: 80px;
+  pointer-events: none;
+  padding: 1rem 2rem 1rem 2rem;
+}
+body{
+  margin: 0;
+ 
+  
+  overflow-x: hidden; 
+  background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+}
+
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo{
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

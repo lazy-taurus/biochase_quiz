@@ -1,80 +1,51 @@
 import mongoose from 'mongoose';
 
-const teamSchema = new mongoose.Schema({
-  member1: {
-    type: String,
-    trim: true,
-    minlength: 3,
-    maxlength: 20,
-    required: true,
-  },
-  member2: {
-    type: String,
-    trim: true,
-    minlength: 3,
-    maxlength: 20,
-  },
-  member3: {
-    type: String,
-    trim: true,
-    minlength: 3,
-    maxlength: 20,
-  },
-  phoneNum: {
-    type: String,
-    trim: true,
-    validate: {
-      validator: function (v) {
-        // Use a regular expression to validate phone numbers
-        return /^[0-9]{10}$/.test(v);
-      },
-      message: props => `${props.value} is not a valid phone number! Please enter a 10-digit number.`,
+const MemberSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        // required: true,
+        trim: true
     },
-  },
-  email: {
-    type: String,
-    trim: true,
-    lowercase: true,
-    unique: true,
-    required: true,
-    validate: {
-      validator: function (v) {
-        // Use a regular expression to validate email addresses
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-      },
-      message: props => `${props.value} is not a valid email address!`,
+    email: {
+      type: String,
+      // required: true,
+      trim: true
     },
-  },
-  teamname: {
-    type: String,
-    trim: true,
-    minlength: 3,
-    maxlength: 20,
-    unique: true,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 6
-  },
-  class: {
-    type: String,
-    trim: true,
-  },
-  schoolname: {
-    type: String,
-    trim: true,
-  },
-  pointsEarned: {
-    type: String,
-    default: "0",
-    trim: true,
-  },
-},{ timestamps: true });
+    whatsappNumber: {
+        type: String,
+        // required: true,
+        trim: true
+    }
+});
 
+const TeamSchema = new mongoose.Schema({
+    teamName: {
+        type: String,
+        // required: true,
+        trim: true
+    },
+    userName: {
+      type: String,
+      unique: true,
+      // required: true,
+      trim: true
+    },
+    password: {
+        type: String,
+        // required: true
+    },
+    schoolName: {
+        type: String,
+        // required: true,
+        trim: true
+    },
+    pointsEarned: {
+        type: String,
+        default: 0
+    },
+    members: [MemberSchema]
+});
 
-const Team = mongoose.model('Teams', teamSchema);
-  
+const Team = mongoose.model('Team', TeamSchema);
 
 export default Team;

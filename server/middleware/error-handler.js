@@ -2,6 +2,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     let customError = {
       // set default
       statusCode: err.statusCode || 500,
+      // msg: err.message || "Something went wrong try again later",
       msg: err.message || "Something went wrong try again later",
     };    
   
@@ -12,7 +13,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     if (err.code && err.code === 11000) {
       return res
         .status(400)
-        .json({ success: false, message: "Email Already Exists" });
+        .json({ success: false, message: "Username Already Exists" });
     }
   
     if (err.name === "CastError") {
@@ -21,7 +22,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         .json({ success: false, message: "No item found with this id" });
     }
   
-    return res.status(customError.statusCode).json({ message: customError.msg })
+    return res.status(customError.statusCode).json({ success: false, message: customError.msg })
   };
   
   export default errorHandlerMiddleware

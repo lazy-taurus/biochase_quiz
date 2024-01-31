@@ -1,0 +1,27 @@
+.padding-enlarge1 {
+    transition: padding-top 0.15s ease-in-out, padding-bottom 0.15s ease-in-out;
+  }
+  
+  .padding-enlarge1:hover {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .slide1 {
+    opacity: 0;
+    transition: all 1000ms linear;
+    transform: translate3d(-300px, 0, 0);
+  }
+  
+  .hasSlid1 {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+.mobile_prize{
+  display: none;
+}
+ @media (max-width:900px){
+ .mobile_prize{
+  display: block;
+ }
+ }

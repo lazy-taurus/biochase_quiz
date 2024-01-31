@@ -1,0 +1,305 @@
+
+@import url(https://db.onlinewebfonts.com/c/03af38e6d90add293d43f1ef74ce755f?family=Adieu+Regular);
+@import url(https://db.onlinewebfonts.com/c/03af38e6d90add293d43f1ef74ce755f?family=Adieu+Bold);
+
+.main_section{
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    font-size: 1.5rem;
+    font-weight: bold;
+padding: 80px 15% 2% 15%;
+    gap: 1rem; 
+    color: #333;
+    letter-spacing: 0.1em; 
+    font-family: "Adieu Bold";
+    margin-top: 0px;
+    
+   
+
+
+}
+.main_section_text{
+    
+    font-size: 3.5rem;
+    font-weight: Black;
+    gap: 1rem; 
+   padding-top: 1.5rem;
+    color: #333;
+    font-family: "Adieu Regular";
+    letter-spacing: 0.1em; 
+}
+.main_section2{
+  justify-content: center;
+    align-items: center;
+  
+    z-index: 100;
+    display: flex;
+    
+}
+.button-icon {
+ 
+  
+  
+    display: flex;
+    
+    border: 3px #222229 solid;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+  }
+  
+  .icon {
+    background-color: #fff;
+    padding: 10px 10px 5px 10px;
+  }
+  
+  .icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .cube {
+  
+
+
+
+
+    transition: all 0.4s;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 20px;
+  }
+  
+  .button-icon:hover {
+    border-color: #784ba0;
+    border-right: none;
+   
+    
+  }
+  
+  .button-icon:hover .cube {
+    transform: rotateX(90deg);
+  }
+  
+  .side {
+    position: absolute;
+    height: 47px;
+    width: 200px;
+    display: flex;
+    font-size: 1.25em;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+  }
+  
+  .top {
+    background: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+    color: #fff;
+    transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
+
+    
+  }
+  .top:hover{
+    transform: scale(1.5), 
+  }
+  
+  
+  .front {
+    background: #222229;
+    color:rgb(151, 95, 255);
+    transform: translate3d(0, 0, 1em);
+  }
+  .circles{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background-color: #ff3cac;
+    background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+  }
+  
+  .circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+  }
+  
+  .circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+  }
+  
+  .circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+  }
+  
+  .circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
+  
+  .circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+  }
+  
+  .circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+  }
+  
+  .circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+  }
+  
+  .circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+  }
+  
+  .circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+  }
+  
+  .circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+  }
+  
+  @keyframes animate {
+  
+    0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+    }
+  
+    100%{
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+    }
+  
+  }
+  
+.logo1{
+    height: 280px;
+    position: fixed;
+    width: 300;
+    bottom:30px ;
+    left: -300px; /* Initial position outside the viewport on the left */
+    opacity: 0;   /* Initial opacity set to 0 */
+    animation: slideInright1 2s ease-out forwards; /* Animation with a duration of 1 second */
+    
+
+
+
+}
+@keyframes slideInright1{
+    to{
+        left:12rem;
+        opacity: 1;
+    }
+}
+.logo2 {
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    top: 8%;
+    right: -300px; /* Initial position outside the viewport on the left */
+    opacity: 0;   /* Initial opacity set to 0 */
+    animation: slideInleft 2s ease-out forwards; /* Animation with a duration of 1 second */
+
+    
+}
+
+@keyframes slideInleft {
+    to {
+        right:15rem; /* Final position from the left */
+        opacity: 1;  /* Final opacity */
+    }
+}
+@media (max-width: 900px) {
+  .main_section_text{
+    font-size: 1.75rem;
+    padding: 30px 5% 30px 5%;
+  }
+  .main_section2{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+   
+    z-index: 100;
+    
+}
+.main_section{
+  font-size: 15px;
+  padding: 15rem 4px .5rem 4px;
+}
+.logo1{
+  display: none; 
+}
+
+.logo2{
+  top:5rem;
+  width: 300px;
+  height: 300px;
+  right: -300px; /* Initial position outside the viewport on the left */
+  opacity: 0;   /* Initial opacity set to 0 */
+  animation: slideInright3 2s ease-out forwards; /* Animation with a duration of 1 second */
+  
+}
+@keyframes slideInright3{
+  to{
+      right:10%;
+      opacity: 1;
+  }
+}
+
+
+
+}

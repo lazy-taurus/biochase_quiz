@@ -1,0 +1,185 @@
+@import url(https://db.onlinewebfonts.com/c/03af38e6d90add293d43f1ef74ce755f?family=Adieu+Regular);
+  
+  /* Timeline Container */
+  .timeline {
+    background: var(--primary-color);
+  margin:  0;
+  z-index: -1;
+    
+  }
+  
+  /* Card container */
+  .card {
+    position: relative;
+    width: 600px;
+    
+    
+  }
+  
+  /* setting padding based on even or odd */
+  .card:nth-child(odd) {
+    margin-left: 50%;
+    width: 450px;
+    padding: 30px 0 30px 30px;
+  }
+  .card:nth-child(even) {
+    width: 450px;
+    padding: 30px 30px 30px 0;
+  }
+  /* Global ::before */
+  .card::before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    border: solid rgb(151, 95, 255);
+  }
+  
+  /* Setting the border of top, bottom, left */
+  .card:nth-child(odd)::before {
+    left: 0px;
+    top: -4.5px;
+    bottom: -4.5px;
+    border-width: 5px 0 5px 5px;
+    border-radius: 50px 0 0 50px;
+  }
+  .prize-list{
+    padding: 1rem 0 0 0;
+    font-weight: 650;
+    list-style: disc;
+    
+    
+  }
+  .prize-list li{
+    padding-bottom: 6px;
+    
+  }
+  
+  /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+  @media only screen and (max-width: 850px) {
+    .card:nth-child(odd)::before {
+      top: -5px;
+      bottom: -5px;
+    }
+  }
+  
+  /* Setting the border of top, bottom, right */
+  .card:nth-child(even)::before {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-width: 5px 5px 5px 0;
+    border-radius: 0 50px 50px 0;
+  }
+  
+  /* Removing the border if it is the first card */
+  .card:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 0;
+  }
+  
+  /* Removing the border if it is the last card  and it's odd */
+  .card:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  /* Removing the border if it is the last card  and it's even */
+  .card:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  /* Information about the timeline */
+  .info {
+
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    color: #222229;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  /* Title of the card */
+  .title {
+   font-family: "Adieu Regular";
+  
+    color: rgb(151, 95, 255);
+    position: relative;
+  }
+  
+  /* Timeline dot  */
+  .title::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 999px;
+    border: 3px solid rgb(151, 95, 255);
+    
+  }
+  
+  /* text right if the card is even  */
+  .card:nth-child(even) > .info > .title {
+    text-align: left;
+  }
+  
+  /* setting dot to the left if the card is odd */
+  .card:nth-child(odd) > .info > .title::before {
+    left: -82px;
+  }
+  
+  /* setting dot to the right if the card is odd */
+  .card:nth-child(even) > .info > .title::before {
+    right: -82px;
+  }
+  .logo6{
+    position: absolute;
+    width: 425px;
+    height: 425px;
+    left: -300px; /* Initial position outside the viewport on the left */
+      /* Initial opacity set to 0 */
+    animation: slideInright 2s ease-out forwards; /* Animation with a duration of 1 second */
+ 
+  }
+  @keyframes slideInright{
+    to{
+        left:18rem;
+        
+    }
+}
+.logo7{
+  position: absolute;
+  margin-top: 42%;
+  width: 400px;
+  height: 400px;
+  left: -300px; /* Initial position outside the viewport on the left */
+    /* Initial opacity set to 0 */
+  animation: slideInright 2s ease-out forwards; /* Animation with a duration of 1 second */
+
+}
+@keyframes slideInright{
+  to{
+      left:16rem;
+      
+  }
+}
+@media (max-with:900px){
+  .logo7,.logo6{
+ width: 1px;
+ height: 1px;
+ left: 0px;
+ left: 0px; /* Initial position outside the viewport on the left */
+    /* Initial opacity set to 0 */
+  animation: slideInright 2s ease-out forwards; /* Animation with a duration of 1 second */
+  }
+  @keyframes slideInright{
+    to{
+        left:0rem;
+        
+    }
+  }
+  
+}
