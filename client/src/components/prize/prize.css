@@ -9,7 +9,7 @@
   }
   
   /* Card container */
-  .card {
+  .card1 {
     position: relative;
     width: 600px;
     
@@ -17,17 +17,17 @@
   }
   
   /* setting padding based on even or odd */
-  .card:nth-child(odd) {
+  .card1:nth-child(odd) {
     margin-left: 50%;
     width: 450px;
     padding: 30px 0 30px 30px;
   }
-  .card:nth-child(even) {
+  .card1:nth-child(even) {
     width: 450px;
     padding: 30px 30px 30px 0;
   }
   /* Global ::before */
-  .card::before {
+  .card1::before {
     content: "";
     position: absolute;
     width: 30%;
@@ -35,7 +35,7 @@
   }
   
   /* Setting the border of top, bottom, left */
-  .card:nth-child(odd)::before {
+  .card1:nth-child(odd)::before {
     left: 0px;
     top: -4.5px;
     bottom: -4.5px;
@@ -55,15 +55,10 @@
   }
   
   /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
-  @media only screen and (max-width: 850px) {
-    .card:nth-child(odd)::before {
-      top: -5px;
-      bottom: -5px;
-    }
-  }
+ 
   
   /* Setting the border of top, bottom, right */
-  .card:nth-child(even)::before {
+  .card1:nth-child(even)::before {
     right: 0;
     top: 0;
     bottom: 0;
@@ -72,25 +67,25 @@
   }
   
   /* Removing the border if it is the first card */
-  .card:first-child::before {
+  .card1:first-child::before {
     border-top: 0;
     border-top-left-radius: 0;
   }
   
   /* Removing the border if it is the last card  and it's odd */
-  .card:last-child:nth-child(odd)::before {
+  .card1:last-child:nth-child(odd)::before {
     border-bottom: 0;
     border-bottom-left-radius: 0;
   }
   
   /* Removing the border if it is the last card  and it's even */
-  .card:last-child:nth-child(even)::before {
+  .card1:last-child:nth-child(even)::before {
     border-bottom: 0;
     border-bottom-right-radius: 0;
   }
   
   /* Information about the timeline */
-  .info {
+  .infodesk {
 
     display: flex;
     flex-direction: column;
@@ -102,9 +97,9 @@
   }
   
   /* Title of the card */
-  .title {
+  .titledesk {
    font-family: "Adieu Regular";
-  
+  font-size: 1.5rem;
     color: rgb(151, 95, 255);
     position: relative;
   }
@@ -122,17 +117,17 @@
   }
   
   /* text right if the card is even  */
-  .card:nth-child(even) > .info > .title {
+  .card1:nth-child(even) > .info > .title {
     text-align: left;
   }
   
   /* setting dot to the left if the card is odd */
-  .card:nth-child(odd) > .info > .title::before {
+  .card1:nth-child(odd) > .info > .title::before {
     left: -82px;
   }
   
   /* setting dot to the right if the card is odd */
-  .card:nth-child(even) > .info > .title::before {
+  .card1:nth-child(even) > .info > .title::before {
     right: -82px;
   }
   .logo6{
@@ -166,7 +161,7 @@
       
   }
 }
-@media (max-with:900px){
+@media (max-with:850px){
   .logo7,.logo6{
  width: 1px;
  height: 1px;
@@ -180,6 +175,10 @@
         left:0rem;
         
     }
+  }
+  .card:nth-child(odd)::before {
+    top: -5px;
+    bottom: -5px;
   }
   
 }
