@@ -19,11 +19,12 @@ export function AddMemberModal({getMembers}) {
   const [email, setEmail] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(name, email, whatsappNumber);
-    const token = localStorage.getItem('token');
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/addMember', {
+    const token = localStorage.getItem('token');
+      const response = await axios.post('https://biochase-quiz-backend.vercel.app/api/v1/addMember', {
         name,
         email,
         whatsappNumber,
@@ -32,11 +33,13 @@ export function AddMemberModal({getMembers}) {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data);
+      console.log(response?.data);
+      alert(response?.data.message);
       getMembers();
       handleOpen();
     } catch (error) {
-      alert(error.response.data.message);
+      console.log(error);
+      alert(error.response?.data.message);
     }
   }
  

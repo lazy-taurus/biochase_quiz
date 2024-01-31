@@ -14,7 +14,7 @@ import axios from "axios";
     const removeMember = async (memberName)=> {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.post('http://localhost:5000/api/v1/removeMember', {
+        const response = await axios.post('https://biochase-quiz-backend.vercel.app/api/v1/removeMember', {
           memberName,
         }, {
           headers: {

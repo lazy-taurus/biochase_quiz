@@ -29,7 +29,7 @@ const RegisterPage = () => {
     console.log(data);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/register", data
+        "https://biochase-quiz-backend.vercel.app/api/v1/register", data
       );
       localStorage.setItem("token", response.data.data);
       console.log(response);
