@@ -8,12 +8,12 @@
     text-align:center;
     font-size: 1.5rem;
     font-weight: bold;
-padding: 80px 15% 2% 15%;
+margin: 80px 15% 2% 15%;
     gap: 1rem; 
     color: #333;
     letter-spacing: 0.1em; 
     font-family: "Adieu Bold";
-    margin-top: 0px;
+   
     
    
 
@@ -229,8 +229,8 @@ padding: 80px 15% 2% 15%;
 .logo1{
     height: 280px;
     position: fixed;
-    width: 300;
-    bottom:30px ;
+    width: 250;
+    bottom:5px ;
     left: -300px; /* Initial position outside the viewport on the left */
     opacity: 0;   /* Initial opacity set to 0 */
     animation: slideInright1 2s ease-out forwards; /* Animation with a duration of 1 second */
@@ -241,8 +241,8 @@ padding: 80px 15% 2% 15%;
 }
 @keyframes slideInright1{
     to{
-        left:12rem;
-        opacity: 1;
+        left:50px;
+        opacity: .5;
     }
 }
 .logo2 {
@@ -260,13 +260,13 @@ padding: 80px 15% 2% 15%;
 @keyframes slideInleft {
     to {
         right:15rem; /* Final position from the left */
-        opacity: 1;  /* Final opacity */
+        opacity: .8;  /* Final opacity */
     }
 }
 @media (max-width: 900px) {
   .main_section_text{
-    font-size: 1.75rem;
-    padding: 30px 5% 30px 5%;
+    font-size: 1.5rem;
+    padding: 25px 5% 30px 5%;
   }
   .main_section2{
     justify-content: center;
@@ -278,16 +278,18 @@ padding: 80px 15% 2% 15%;
 }
 .main_section{
   font-size: 15px;
-  padding: 15rem 4px .5rem 4px;
+  margin: 12rem 0 .5rem 0;
 }
 .logo1{
   display: none; 
+
 }
 
 .logo2{
-  top:5rem;
-  width: 300px;
-  height: 300px;
+
+  top:0px;
+  width: 250px;
+  height: 280px;
   right: -300px; /* Initial position outside the viewport on the left */
   opacity: 0;   /* Initial opacity set to 0 */
   animation: slideInright3 2s ease-out forwards; /* Animation with a duration of 1 second */
@@ -295,7 +297,7 @@ padding: 80px 15% 2% 15%;
 }
 @keyframes slideInright3{
   to{
-      right:10%;
+      right:15%;
       opacity: 1;
   }
 }

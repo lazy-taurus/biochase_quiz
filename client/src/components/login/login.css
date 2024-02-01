@@ -7,12 +7,7 @@ margin: 1rem 4rem;
 display: flex;
 gap: 1rem;
 }
-@media (max-width: 900px){
-  .login{
-    margin: 2rem 2rem;
-  }
- 
-}
+
 .btn-login {
     display: flex;
     align-items: center;
@@ -99,4 +94,21 @@ gap: 1rem;
   /* button click effect*/
   .btn-login:active {
     transform: translate(2px ,2px);
+  }
+  @media (max-width: 850px){
+    .login{
+      margin: 1rem 2rem;
+    }
+    .sign svg {
+      width: 1rem;
+    }
+    .sign1  {
+      font-size: 1rem;
+      
+    }
+    .btn-login{
+      width: 45px;
+      height: 45px;
+    }
+   
   }

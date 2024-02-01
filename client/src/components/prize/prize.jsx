@@ -10,9 +10,9 @@ const TimelineComponent = () => {
        
       <div className="outer">
      
-        <div className="card">
-          <div className="info">
-            <h2 className="title">Winner
+        <div className="card1">
+          <div className="infodesk">
+            <h2 className="titledesk">Winner
 </h2>
             <ul className='prize-list'>
               <li> Compound Microscope for each participant of the team</li>
@@ -23,9 +23,9 @@ const TimelineComponent = () => {
               </ul>
           </div>
         </div>
-        <div className="card">
-          <div className="info">
-            <h2 className="title">Runner's Up 
+        <div className="card1">
+          <div className="infodesk">
+            <h2 className="titledesk">Runner's Up 
 
 
 </h2>
@@ -41,9 +41,9 @@ const TimelineComponent = () => {
               </ul>
           </div>
         </div>
-        <div className="card">
-          <div className="info">
-            <h2 className="title">Second Runner's Up 
+        <div className="card1">
+          <div className="infodesk">
+            <h2 className="titledesk">Second Runner's Up 
 </h2>
 <ul className='prize-list'>
  <li>Cash Prize of Rs. 2000</li>
@@ -55,9 +55,9 @@ const TimelineComponent = () => {
               </ul>  </div>
         </div>
         
-        <div className="card">
-          <div className="info">
-            <h2 className="title">Yes! There's more
+        <div className="card1">
+          <div className="infodesk">
+            <h2 className="titledesk">Yes! There's more
 </h2>
 <ul className='prize-list'>
 <li>List of Top 10 Schools will be published.</li> 
