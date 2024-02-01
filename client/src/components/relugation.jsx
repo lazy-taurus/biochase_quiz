@@ -7,6 +7,19 @@ export default class rulesandregulation extends Component {
   render() {
     return (
       <div>
+        <ul className="circles1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+       
         <Back/> <div className='rules-head'>Rules for the Inter School Biology Quizzing Event
       “Bio-Chase 1.0”
       </div>
@@ -33,6 +46,7 @@ export default class rulesandregulation extends Component {
 
         "
       />
+        
       <RnR1
         question="Equitable Evaluation with Percentage Conversion:"
         answer="To address potential disparities in the number of participating teams from different schools, raw scores will be converted to percentages, ensuring a fair assessment across the board.
@@ -59,6 +73,8 @@ export default class rulesandregulation extends Component {
 
         "
       />
+      
+       
       <RnR1 
         question="Special Provisions for Schools Without Classes 11 and 12:"
         answer="Acknowledging variations in school structures, schools without classes 11 and 12 will be given special consideration.
@@ -67,8 +83,21 @@ export default class rulesandregulation extends Component {
         
         " 
       />
-      
+       
+       <ul className="circles1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
       <Footer/>
+      
       
 
       </div>

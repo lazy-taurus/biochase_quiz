@@ -36,6 +36,7 @@ const MenuButton = () => {
 
 <Rule/>
 <Register/>
+
 <Footer/>
     </div>
   );
