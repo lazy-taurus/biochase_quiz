@@ -2,10 +2,15 @@ import styled from "styled-components";
 
 function RnR({ question, answer }) {
   return (
+    
+    
+       
     <Faq>
+     
       <Summary>{question}</Summary>
       <Answer>{answer}</Answer>
     </Faq>
+   
   );
 }
 

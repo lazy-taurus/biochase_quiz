@@ -163,13 +163,14 @@ padding: 0 15%;
     stroke-dashoffset: -134;
     stroke-width: 6;
   }
+  
   @media (max-width: 900px){
     .welcome_text{
       font-size: 1.25rem;
       height: 5rem;
       
-    margin: 1.5rem;
-    padding: 2rem 0 1rem 0;
+    margin: 1rem 1.5rem;
+    padding: 1rem 0 1rem 0;
     }
     
   }
