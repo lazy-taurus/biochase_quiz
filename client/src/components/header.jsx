@@ -32,6 +32,9 @@ export default function Header() {
   const handleLogOut = () => {
     setLoggedIn(false);
     localStorage.removeItem('token');
+    if (window.location.pathname === '/') {
+      window.location.reload();
+    }
     navigate('/');
   };
   const listLogOut = () => {
@@ -49,6 +52,14 @@ export default function Header() {
           sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
         >
           <div className='md:flex hidden'>
+            <Link to='/overview'>
+              <Typography
+                sx={{ minWidth: 100 }}
+                className=' hover:font-semibold'
+              >
+                Overview
+              </Typography>
+            </Link>
             {!loggedIn ? (
               <>
                 <Link to='/register'>
@@ -69,22 +80,24 @@ export default function Header() {
                 </Link>
               </>
             ) : (
-              <Typography
-                sx={{ minWidth: 100 }}
-                className=' hover:font-semibold cursor-pointer'
-                onClick={handleLogOut}
-              >
-                LogOut
-              </Typography>
+              <>
+                <Link to='/dashboard'>
+                  <Typography
+                    sx={{ minWidth: 100 }}
+                    className=' hover:font-semibold'
+                  >
+                    Dashboard
+                  </Typography>
+                </Link>
+                <Typography
+                  sx={{ minWidth: 100 }}
+                  className=' hover:font-semibold cursor-pointer'
+                  onClick={handleLogOut}
+                >
+                  LogOut
+                </Typography>
+              </>
             )}
-            <Link to='/overview'>
-              <Typography
-                sx={{ minWidth: 100 }}
-                className=' hover:font-semibold'
-              >
-                Overview
-              </Typography>
-            </Link>
           </div>
           <div className='md:hidden flex'>
             <Tooltip title='Menu'>

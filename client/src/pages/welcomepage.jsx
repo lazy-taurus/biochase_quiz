@@ -4,9 +4,11 @@ import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
 import './welcome.css';
 import Header from '../components/header';
+import { Link } from 'react-router-dom';
 
 function Welcomepage() {
   // const navigate=useNavigation();
+  const isLoggedIn = localStorage.getItem('token') !== null;
 
   return (
     <div className='h-[100vh] w-full top-0 right-0  fixed overflow-hidden herobg p-0'>
@@ -23,29 +25,49 @@ function Welcomepage() {
             Question at a Time!"
           </h5>
           <Stack spacing={2} direction='row'>
-            <Button
-              variant='contained'
-              style={{
-                backgroundColor: '#04091b',
-                padding: '15px 40px',
-                fontWeight: 'bolder',
-                color: 'white',
-              }}
-            >
-              Register
-            </Button>
-            <Button
-              variant='outlined'
-              style={{
-                color: '#04091b',
-                borderColor: '#04091b',
-                padding: '15px 40px',
-                fontWeight: 'bolder',
-              }}
-              className=' font-bold'
-            >
-              Details
-            </Button>
+            {!isLoggedIn ? (
+              <Link to='/register'>
+                <Button
+                  variant='contained'
+                  style={{
+                    backgroundColor: '#04091b',
+                    padding: '15px 40px',
+                    fontWeight: 'bolder',
+                    color: 'white',
+                  }}
+                >
+                  Register
+                </Button>
+              </Link>
+            ) : (
+              <Link to='/dashboard'>
+                <Button
+                  variant='contained'
+                  style={{
+                    backgroundColor: '#04091b',
+                    padding: '15px 40px',
+                    fontWeight: 'bolder',
+                    color: 'white',
+                  }}
+                >
+                  Your Team
+                </Button>
+              </Link>
+            )}
+            <Link to='/overview'>
+              <Button
+                variant='outlined'
+                style={{
+                  color: '#04091b',
+                  borderColor: '#04091b',
+                  padding: '15px 40px',
+                  fontWeight: 'bolder',
+                }}
+                className=' font-bold'
+              >
+                Details
+              </Button>
+            </Link>
           </Stack>
         </section>
         <section className='flex flex-col h-[90vh] justify-center right md:w-[40%] w-0 object-contain'>

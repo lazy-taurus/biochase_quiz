@@ -5,6 +5,7 @@ import './welcome.css';
 import { Link } from 'react-router-dom';
 
 const Overview = () => {
+  const isLoggedIn = localStorage.getItem('token') !== null;
   return (
     <div className=' max-w-4xl p-10 text-[#070F2B] bg-white shadow-xl mx-auto'>
       <div className='head flex flex-col gap-3 items-center my-5'>
@@ -125,22 +126,24 @@ const Overview = () => {
         <h1 className='ques text-2xl font-semibold flex gap-2 mx-auto my-5 flex-wrap'>
           Join Us Today and Stay Informed: Read Our <Rule /> and Register Now!
         </h1>
-        <Link to='/register' className='w-4/5 md:w-1/2'>
-          <Button
-            variant='contained'
-            style={{
-              backgroundColor: '#04091b',
-              padding: '20px 10px',
-              width: '100%',
-              fontWeight: 'bolder',
-              fontSize: 'large',
-              color: 'white',
-              borderRadius: '1rem',
-            }}
-          >
-            Register
-          </Button>
-        </Link>
+        {!isLoggedIn && (
+          <Link to='/register' className='w-4/5 md:w-1/2'>
+            <Button
+              variant='contained'
+              style={{
+                backgroundColor: '#04091b',
+                padding: '20px 10px',
+                width: '100%',
+                fontWeight: 'bolder',
+                fontSize: 'large',
+                color: 'white',
+                borderRadius: '1rem',
+              }}
+            >
+              Register
+            </Button>
+          </Link>
+        )}
       </div>
       <h1 className='ques text-3xl mb-3 text-center font-bold text-[#535C91]'>
         DIVE INTO THE REALM OF CURIOSITY
