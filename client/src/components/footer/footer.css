@@ -18,7 +18,7 @@
 
 #contact {
   font-weight: 600;
-  color: #222229;
+  color: #ececee;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,11 +38,14 @@
   align-items: center;
   transition: transform 1s, box-shadow 0.5s;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
 }
 
 #icon-container {
   display: flex;
   justify-content: center;
+ 
+    
 }
 
 .iconbrand:hover {
@@ -92,4 +95,5 @@ font-size: 1rem;}
     font-weight: 500;
   }
 }
+
 
