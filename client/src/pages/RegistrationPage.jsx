@@ -138,6 +138,7 @@ const theme = createTheme();
 
 const RegisterPage = () => {
   const [userName, setuserName] = useState();
+  const [userNumber, setuserNumber] = useState();
   const [password, setpassword] = useState();
   const [teamName, setteamName] = useState();
   const [schoolName, setschoolName] = useState();
@@ -150,6 +151,7 @@ const RegisterPage = () => {
         'https://biochase-quiz-backend.vercel.app/api/v1/register',
         {
           userName,
+          userNumber,
           teamName,
           schoolName,
           password,
@@ -169,7 +171,7 @@ const RegisterPage = () => {
         });
       }
     } catch (error) {
-      toast.error('Error logging in. Please try again.', {
+      toast.error(error.response.data.message, {
         position: 'top-right',
       });
       console.log(error);
@@ -205,7 +207,7 @@ const RegisterPage = () => {
               required
               fullWidth
               id='userName'
-              label='UserName '
+              label='User Name '
               name='text'
               autoComplete='text'
               autoFocus
@@ -214,13 +216,27 @@ const RegisterPage = () => {
                 setuserName(e.target.value);
               }}
             />
+            <TextField
+              margin='normal'
+              required
+              fullWidth
+              id='userNumber'
+              label='Phone Number'
+              name='text'
+              autoComplete='text'
+              autoFocus
+              value={userNumber}
+              onChange={(e) => {
+                setuserNumber(e.target.value);
+              }}
+            />
 
             <TextField
               margin='normal'
               required
               fullWidth
               id='teamName'
-              label='TeamName '
+              label='Team Name'
               name='text'
               autoComplete='text'
               autoFocus
@@ -235,7 +251,7 @@ const RegisterPage = () => {
               required
               fullWidth
               id='schoolName'
-              label='schoolName'
+              label='School Name'
               name='text'
               autoComplete='text'
               autoFocus

@@ -1,12 +1,4 @@
-import {
-  List,
-  ListItem,
-  ListItemPrefix,
-  Avatar,
-  Card,
-  Typography,
-  Button,
-} from '@material-tailwind/react';
+import { List, ListItem, Card, Typography } from '@material-tailwind/react';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -56,6 +48,11 @@ export function TeamList({ members, setMembers, getMembers }) {
               <div>
                 <Typography variant='h6' color='blue-gray'>
                   <h1 className='text-bold text-xl'>{member.name}</h1>
+                </Typography>
+              </div>
+              <div>
+                <Typography variant='h6' color='blue-gray'>
+                  <h1 className='text-bold text-xl'>Class {member.clas}</h1>
                 </Typography>
               </div>
               <button

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { TeamList } from '../components/dashboard_components/TeamList';
-import { Button } from '@material-tailwind/react';
 import axios from 'axios';
 import { AddMemberModal } from '../components/dashboard_components/AddMemberModal';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/footer/footer';
 import { toast } from 'react-toastify';
 
 const DashboardPage = () => {
   const [members, setMembers] = useState([]);
+  const [team, setTeam] = useState('default');
+  const [score, setScore] = useState(0);
   const navigate = useNavigate();
 
   const getMembers = async () => {
@@ -23,7 +23,10 @@ const DashboardPage = () => {
         }
       );
       console.log(response.data);
-      setMembers(response.data.data);
+      // setMembers(response.data.data);
+      setMembers(response.data.data.members);
+      setTeam(response.data.data.teamName);
+      setScore(response.data.data.pointsEarned);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +59,7 @@ const DashboardPage = () => {
       </Button> */}
       <div className='mx-[10%] mt-[15%] lg:mt-[5%]  '>
         <div className='my-10 flex justify-between items-center w-full h-[5vh] md:h-[10vh] px-5 md:px-10 mx-auto'>
-          <h1 className=' text-xl md:text-5xl font-bold'>Team: Axios</h1>
+          <h1 className=' text-xl md:text-5xl font-bold'>Team: {team}</h1>
           <AddMemberModal getMembers={getMembers} />
         </div>
         <TeamList
@@ -65,7 +68,7 @@ const DashboardPage = () => {
           getMembers={getMembers}
         />
         <div className='mt-10'>
-          <h1 className='font-bold my-5 text-2xl'>Total Score: 0</h1>
+          <h1 className='font-bold my-5 text-2xl'>Total Score: {score}</h1>
         </div>
       </div>
     </div>

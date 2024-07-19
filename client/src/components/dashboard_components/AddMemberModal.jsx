@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import {
   Dialog,
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Typography,
-  Input,
-  Checkbox,
 } from '@material-tailwind/react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -17,18 +14,20 @@ export function AddMemberModal({ getMembers }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
   const [name, setName] = useState('');
+  const [clas, setClass] = useState();
   const [email, setEmail] = useState('');
   const [whatsappNumber, setWhatsappNumber] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, whatsappNumber);
+    console.log(name, clas, email, whatsappNumber);
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
         'https://biochase-quiz-backend.vercel.app/api/v1/addMember',
         {
           name,
+          // clas,
           email,
           whatsappNumber,
         },
@@ -93,6 +92,17 @@ export function AddMemberModal({ getMembers }) {
                 type='text'
                 onChange={(e) => setName(e.target.value)}
                 label='Member Name'
+                size='lg'
+              />
+              <Typography className='-mb-2' variant='h6'>
+                Member Class
+              </Typography>
+              <input
+                className='border border-black outline-none rounded-lg p-1'
+                required
+                type='number'
+                onChange={(e) => setClass(e.target.value)}
+                label='Member Class'
                 size='lg'
               />
               <Typography className='-mb-2' variant='h6'>
