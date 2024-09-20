@@ -27,7 +27,7 @@ export function AddMemberModal({ getMembers }) {
         'https://biochase-quiz-backend.vercel.app/api/v1/addMember',
         {
           name,
-          // clas,
+          clas,
           email,
           whatsappNumber,
         },
