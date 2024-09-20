@@ -57,7 +57,7 @@ export function TeamList({ members, setMembers, getMembers }) {
               </div>
               <div>
                 <Typography variant='h6' color='blue-gray'>
-                  <h1 className='text-bold text-xl'>{member.whatsappNumber}</h1>
+                  <h1 className='hidden sm:block text-bold text-xl'>{member.whatsappNumber}</h1>
                 </Typography>
               </div>
               <button
