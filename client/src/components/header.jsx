@@ -44,7 +44,7 @@ export default function Header() {
 
   return (
     <section className=' w-full h-[10vh] top-0 items-center flex justify-between px-10 m-0 md:px-16 text-[#070F2B] bg-transparent '>
-      <Link to='/' className=' md:w-2/5 w-1/2'>
+      <Link to='/' className=' px-10'>
         <h1 className='font-bold text-2xl text-nowrap'>BIO-CHASE</h1>
       </Link>
       <React.Fragment>
@@ -58,6 +58,22 @@ export default function Header() {
                 className=' hover:font-semibold'
               >
                 Overview
+              </Typography>
+            </Link>
+            <Link to='/leaderboard'>
+              <Typography
+                sx={{ minWidth: 100 }}
+                className=' hover:font-semibold'
+              >
+                Leaderboard
+              </Typography>
+            </Link>
+            <Link to='/timeline'>
+              <Typography
+                sx={{ minWidth: 100 }}
+                className=' hover:font-semibold'
+              >
+                Timeline
               </Typography>
             </Link>
             {!loggedIn ? (
@@ -151,6 +167,15 @@ export default function Header() {
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
+          <Link to='/overview'>
+            <MenuItem onClick={handleClose}>Overview</MenuItem>
+          </Link>
+          <Link to='/leaderboard'>
+            <MenuItem onClick={handleClose}>LeaderBoard</MenuItem>
+          </Link>
+          <Link to='/timeline'>
+            <MenuItem onClick={handleClose}>Timeline</MenuItem>
+          </Link>
           {!loggedIn ? (
             <>
               <Link to='/register'>
@@ -161,11 +186,13 @@ export default function Header() {
               </Link>
             </>
           ) : (
-            <MenuItem onClick={listLogOut}>LogOut</MenuItem>
+            <>
+              <Link to='/dashboard'>
+                <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+              </Link>
+              <MenuItem onClick={listLogOut}>LogOut</MenuItem>
+            </>
           )}
-          <Link to='/overview'>
-            <MenuItem onClick={handleClose}>Overview</MenuItem>
-          </Link>
         </Menu>
       </React.Fragment>
     </section>

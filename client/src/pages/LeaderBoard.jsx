@@ -21,7 +21,7 @@ const Leaderboard = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         'http://localhost:8000/api/v1/leaderboard'
       );
       const data = response.data;
