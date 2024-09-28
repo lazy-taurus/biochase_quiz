@@ -21,19 +21,17 @@ const register = async (req, res, next) => {
 
     // Generating the JWT
     const token = jwt.sign(
-      { teamId: team._id, userName: team.userName },
+      { userId: team._id, userName: team.userName },
       process.env.JWT_SECRET,
       {
         expiresIn: '1000d',
       }
     );
-    res
-      .status(201)
-      .json({
-        success: true,
-        message: 'Registered Successfully✅',
-        data: token,
-      });
+    res.status(201).json({
+      success: true,
+      message: 'Registered Successfully✅',
+      data: token,
+    });
   } catch (error) {
     next(error);
   }
@@ -60,7 +58,7 @@ const login = async (req, res, next) => {
 
   // Generating the JWT
   const token = jwt.sign(
-    { teamId: team._id, userName: team.userName },
+    { userId: team._id, userName: team.userName },
     process.env.JWT_SECRET,
     {
       expiresIn: '1000d',
