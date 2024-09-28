@@ -1,0 +1,21 @@
+{
+  "name": "my-backend-project",
+  "version": "1.0.0",
+  "description": "Backend server for my app",
+  "main": "app.js",
+  "scripts": {
+    "build": "cd server && npm install && npm run build",
+    "start": "cd server && node app.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "author": "Vardan Rastogi",
+  "license": "MIT"
+}
