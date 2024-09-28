@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import CountdownTimer from '../components/Timer';
 
 const subjectiveQuestions = [
   { question: 'Explain the process of photosynthesis in detail.' },
@@ -75,9 +76,10 @@ const LevelPage = () => {
       {/* Header */}
       <header className='bg-gray-800 text-white py-4 px-6 flex justify-between items-center'>
         <h1 className='text-xl font-semibold'>Subjective Quiz</h1>
-        <div className='text-lg'>
-          Time Remaining: <span className='font-bold'>30:00</span>
-        </div>
+        <CountdownTimer
+          handleSubmit={handleSubmit}
+          targetTime='2024-09-28T12:39:00'
+        />
       </header>
       <div className='min-h-[50hv] flex'>
         {/* Sidebar */}

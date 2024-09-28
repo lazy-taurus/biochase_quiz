@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TeamList } from '../components/dashboard_components/TeamList';
 import axios from 'axios';
 import { AddMemberModal } from '../components/dashboard_components/AddMemberModal';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const DashboardPage = () => {
@@ -67,8 +67,13 @@ const DashboardPage = () => {
           setMembers={setMembers}
           getMembers={getMembers}
         />
-        <div className='mt-10'>
+        <div className='mt-10 flex justify-between'>
           <h1 className='font-bold my-5 text-2xl'>Total Score: {score}</h1>
+          <Link to={'/timeline'}>
+            <button className='bg-[#04091b] text-white py-4 px-6 rounded hover:bg-[#04090a]'>
+              Timeline
+            </button>
+          </Link>
         </div>
       </div>
     </div>

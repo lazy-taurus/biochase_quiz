@@ -15,6 +15,7 @@ import ResponsesPage from './pages/ResponsesPage';
 import AdminPage from './pages/AdminLogin';
 import UnstopContestPage from './pages/waste/Page';
 import Timeline from './pages/waste/unstop';
+import Leaderboard from './pages/LeaderBoard';
 
 function App() {
   return (
@@ -32,8 +33,9 @@ function App() {
           <Route path='/dashboard' element={<DashboardPage />} />
           <Route path='/level' element={<LevelPage />} />
           <Route path='/quiz/:id' element={<QuizPage />} />
-          <Route path='/unstop' element={<Timeline />} />
+          <Route path='/timeline' element={<Timeline />} />
           <Route path='/responses' element={<ResponsesPage />} />
+          <Route path='/leaderboard' element={<Leaderboard />} />
         </Routes>
         <Footer />
         <ToastContainer />

@@ -105,6 +105,8 @@ export const viewAllResponses = async (req, res, next) => {
   }
 };
 
+
+
 // Controller for viewing answers of a single response
 export const viewSingleResponse = async (req, res, next) => {
   const { responseId } = req.body;
