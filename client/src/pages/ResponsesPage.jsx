@@ -23,7 +23,7 @@ const ResponsesPage = () => {
   const fetchCandidates = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/v1/admin/responses',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/admin/responses',
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`, // If authentication is needed

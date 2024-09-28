@@ -15,7 +15,7 @@ const DashboardPage = () => {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.get(
-        'http://localhost:8000/api/v1/getTeamMembers',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/getTeamMembers',
         {
           headers: {
             Authorization: `Bearer ${token}`,

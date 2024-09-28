@@ -8,7 +8,7 @@ export function TeamList({ members, setMembers, getMembers }) {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/v1/removeMember',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/removeMember',
         {
           memberName,
         },

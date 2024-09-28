@@ -47,7 +47,7 @@ const QuizPage = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/v1/admin/answers',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/admin/answers',
         {
           responseId: id, // Body data with the responseId
         },
@@ -92,7 +92,7 @@ const QuizPage = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/v1/admin/addscore',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/admin/addscore',
         {
           responseId: id, // Send the marks object
           score: totalMarks, // Send the marks object

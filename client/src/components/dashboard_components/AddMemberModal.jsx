@@ -24,7 +24,7 @@ export function AddMemberModal({ getMembers, members }) {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:8000/api/v1/addMember',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/addMember',
         {
           name,
           clas,

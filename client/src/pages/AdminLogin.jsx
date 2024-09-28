@@ -41,7 +41,7 @@ const AdminPage = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/v1/admin/login',
+        'https://biochase-backend-xeqq.vercel.app/api/v1/admin/login',
         {
           username: userName,
           password,
