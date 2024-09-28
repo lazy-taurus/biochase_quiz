@@ -1,33 +1,75 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-// Example test submissions
-const testSubmissions = [
-  {
-    question: 'Explain the process of photosynthesis in detail.',
-    answer:
-      'Photosynthesis is the process by which green plants convert sunlight into energy...',
-  },
-  {
-    question:
-      "Describe Newton's three laws of motion with real-world examples.",
-    answer:
-      'First law: An object at rest stays at rest unless acted upon by a force...',
-  },
-  {
-    question: 'What is the impact of climate change on polar ice caps?',
-    answer:
-      'Climate change has resulted in the melting of polar ice caps, leading to rising sea levels...',
-  },
-  {
-    question: 'Discuss the role of technology in modern education.',
-    answer:
-      'Technology has revolutionized modern education by providing online learning platforms...',
-  },
+const questions = [
+  'Explain the process of photosynthesis in detail.',
+  "Describe Newton's three laws of motion with real-world examples.",
+  'What is the impact of climate change on polar ice caps?',
+  'Discuss the role of technology in modern education.',
 ];
 
+// Example test submissions
+// const submissions = [
+//   {
+//     question: 'Explain the process of photosynthesis in detail.',
+//     answer:
+//       'Photosynthesis is the process by which green plants convert sunlight into energy...',
+//   },
+//   {
+//     question:
+//       "Describe Newton's three laws of motion with real-world examples.",
+//     answer:
+//       'First law: An object at rest stays at rest unless acted upon by a force...',
+//   },
+//   {
+//     question: 'What is the impact of climate change on polar ice caps?',
+//     answer:
+//       'Climate change has resulted in the melting of polar ice caps, leading to rising sea levels...',
+//   },
+//   {
+//     question: 'Discuss the role of technology in modern education.',
+//     answer:
+//       'Technology has revolutionized modern education by providing online learning platforms...',
+//   },
+// ];
+
 const QuizPage = () => {
+  const { id } = useParams();
   const [marks, setMarks] = useState({});
+  const [team, setTeam] = useState('');
   const [totalMarks, setTotalMarks] = useState(0);
+
+  const [submissions, setSubmissions] = useState([]);
+  // Fetch submissions from the API
+  const fetchSubmissions = async () => {
+    console.log(`|${id}|`);
+
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/api/v1/admin/answers',
+        {
+          responseId: id, // Body data with the responseId
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // If authentication is needed
+          },
+        }
+      );
+      console.log(response);
+      setSubmissions(response.data.data.answers);
+      setTeam(response.data.data.team);
+      // Assume the response data contains the array of submissions
+    } catch (error) {
+      console.error(error);
+      alert('Failed to fetch submissions. Please try again later.');
+    }
+  };
+
+  useEffect(() => {
+    fetchSubmissions(); // Fetch submissions on component mount
+  }, []);
 
   // Handle marks input for each question
   const handleMarksChange = (index, event) => {
@@ -46,9 +88,28 @@ const QuizPage = () => {
     setTotalMarks(total);
   };
 
-  const handleSubmit = () => {
-    console.log('Marks given:', marks);
-    alert('Marks have been submitted successfully.');
+  // Submit the scores to the API
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/api/v1/admin/addscore',
+        {
+          responseId: id, // Send the marks object
+          score: totalMarks, // Send the marks object
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // If authentication is needed
+          },
+        }
+      );
+
+      console.log('Marks submitted:', response.data);
+      alert('Marks have been submitted successfully.');
+    } catch (error) {
+      console.error('Error submitting marks:', error);
+      alert('There was an error submitting marks. Please try again.');
+    }
   };
 
   return (
@@ -57,17 +118,17 @@ const QuizPage = () => {
       <header className='bg-gray-800 text-white py-4 px-6 flex justify-between items-center'>
         <h1 className='text-xl font-semibold'>Candidate Submissions</h1>
         <div className='text-lg'>
-          Candidate: <span className='font-bold'>John Doe</span>
+          Candidate: <span className='font-bold'>{team}</span>
         </div>
       </header>
 
       {/* Main Content */}
       <div className='flex-grow p-6 bg-gray-100'>
         <div className='max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-lg'>
-          {testSubmissions.map((submission, index) => (
+          {submissions.map((submission, index) => (
             <div key={index} className='mb-8'>
               <h2 className='text-xl font-bold mb-2'>Question {index + 1}:</h2>
-              <p className='mb-4'>{submission.question}</p>
+              <p className='mb-4'>{questions[index]}</p>
               <h3 className='text-lg font-semibold mb-2'>Answer:</h3>
               <p className='mb-4 bg-gray-50 p-4 border border-gray-200 rounded-lg'>
                 {submission.answer}

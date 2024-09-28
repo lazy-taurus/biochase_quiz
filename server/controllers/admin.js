@@ -156,7 +156,7 @@ export const addScoreToResponse = async (req, res, next) => {
 
 // Controller for team to submit a response
 export const submitResponse = async (req, res, next) => {
-  const { userId } = req.user;
+  const { userId, userName } = req.user;
   const { answers } = req.body;
 
   if (!Array.isArray(answers) || answers.length === 0) {
@@ -175,6 +175,7 @@ export const submitResponse = async (req, res, next) => {
 
     const response = new Response({
       userId,
+      team: userName,
       answers,
     });
 
@@ -185,6 +186,7 @@ export const submitResponse = async (req, res, next) => {
       data: response,
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };

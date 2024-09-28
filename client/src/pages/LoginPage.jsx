@@ -147,14 +147,11 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        'https://biochase-quiz-backend.vercel.app/api/v1/login',
-        {
-          userName,
+      const response = await axios.post('http://localhost:8000/api/v1/login', {
+        userName,
 
-          password,
-        }
-      );
+        password,
+      });
       localStorage.setItem('token', response.data.data);
       console.log(response);
       console.log(response.data.data);

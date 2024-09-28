@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 const AnswerSchema = new mongoose.Schema({
   ques: {
     type: Number,
-    unique: true,
     required: true,
     trim: true,
   },
@@ -20,6 +19,12 @@ const ResponseSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+
+  team: {
+    type: String,
+    required: true,
+  },
+
   checked: {
     type: Boolean,
     required: true,

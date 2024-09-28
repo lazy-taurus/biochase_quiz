@@ -15,7 +15,7 @@ const DashboardPage = () => {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.get(
-        'https://biochase-quiz-backend.vercel.app/api/v1/getTeamMembers',
+        'http://localhost:8000/api/v1/getTeamMembers',
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ const DashboardPage = () => {
       <div className='mx-[10%] mt-[15%] lg:mt-[5%]  '>
         <div className='my-10 flex justify-between items-center w-full h-[5vh] md:h-[10vh] px-5 md:px-10 mx-auto'>
           <h1 className=' text-xl md:text-5xl font-bold'>Team: {team}</h1>
-          <AddMemberModal getMembers={getMembers} />
+          <AddMemberModal getMembers={getMembers} members={members} />
         </div>
         <TeamList
           members={members}

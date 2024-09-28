@@ -10,7 +10,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Button } from '@mui/material';
 
-export function AddMemberModal({ getMembers }) {
+export function AddMemberModal({ getMembers, members }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
   const [name, setName] = useState('');
@@ -24,7 +24,7 @@ export function AddMemberModal({ getMembers }) {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'https://biochase-quiz-backend.vercel.app/api/v1/addMember',
+        'http://localhost:8000/api/v1/addMember',
         {
           name,
           clas,
@@ -62,12 +62,21 @@ export function AddMemberModal({ getMembers }) {
       <Button
         variant='contained'
         style={{
-          backgroundColor: '#04091b',
+          backgroundColor: members.length >= 4 ? 'gray' : '#04091b', // Disable button if members >= 4
           padding: '10px 20px',
           fontWeight: 'bolder',
           color: 'white',
         }}
-        onClick={handleOpen}
+        onClick={() => {
+          if (members.length < 4) {
+            handleOpen();
+          } else {
+            toast.error('Maximum 4 members allowed', {
+              position: 'top-right',
+            });
+          }
+        }}
+        disabled={members.length >= 4} // Disable button when there are 4 members
       >
         Add
       </Button>

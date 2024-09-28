@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 
@@ -16,14 +17,30 @@ const candidates = [
 ];
 
 const ResponsesPage = () => {
-  //   const history = useHistory();
+  const [candidates, setCandidates] = useState([]); // State to hold candidates
 
-  // Function to view a specific candidate's responses
-  const viewResponses = (id) => {
-    // This will navigate to the submissions page for that candidate
-    // You can pass the candidate ID via the URL or state
-    // history.push(`/submissions/${id}`);
+  // Fetch candidates from the API
+  const fetchCandidates = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/api/v1/admin/responses',
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // If authentication is needed
+          },
+        }
+      );
+      console.log(response);
+      setCandidates(response.data.data); // Set the candidates data from the response
+    } catch (error) {
+      console.error(error.response.data.message);
+      alert('Failed to fetch candidates. Please try again later.');
+    }
   };
+
+  useEffect(() => {
+    fetchCandidates(); // Fetch candidates on component mount
+  }, []);
 
   return (
     <div className='min-h-[50vh] flex flex-col'>
@@ -59,18 +76,18 @@ const ResponsesPage = () => {
             </thead>
             <tbody>
               {candidates.map((candidate) => (
-                <tr key={candidate.id} className='hover:bg-gray-100'>
+                <tr key={candidate._id} className='hover:bg-gray-100'>
                   <td className='border-b border-gray-300 p-4'>
-                    {candidate.name}
+                    {candidate.team}
                   </td>
                   <td className='border-b border-gray-300 p-4'>
                     {candidate.submissionTime}
                   </td>
                   <td className='border-b border-gray-300 p-4'>
-                    {candidate.marks >= 0 ? candidate.marks : 'not marked'}
+                    {candidate.checked ? candidate.score : 'not marked'}
                   </td>
                   <td className='border-b border-gray-300 p-4'>
-                    <Link to='/quiz'>
+                    <Link to={`/quiz/${candidate._id}`}>
                       <button
                         //   onClick={() => viewResponses(candidate.id)}
                         className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700'

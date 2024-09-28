@@ -8,7 +8,7 @@ export function TeamList({ members, setMembers, getMembers }) {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.post(
-        'https://biochase-quiz-backend.vercel.app/api/v1/removeMember',
+        'http://localhost:8000/api/v1/removeMember',
         {
           memberName,
         },
@@ -57,7 +57,9 @@ export function TeamList({ members, setMembers, getMembers }) {
               </div>
               <div>
                 <Typography variant='h6' color='blue-gray'>
-                  <h1 className='hidden sm:block text-bold text-xl'>{member.whatsappNumber}</h1>
+                  <h1 className='hidden sm:block text-bold text-xl'>
+                    {member.whatsappNumber}
+                  </h1>
                 </Typography>
               </div>
               <button

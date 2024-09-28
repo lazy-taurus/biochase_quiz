@@ -148,7 +148,7 @@ const RegisterPage = () => {
 
     try {
       const response = await axios.post(
-        'https://biochase-quiz-backend.vercel.app/api/v1/register',
+        'http://localhost:8000/api/v1/register',
         {
           userName,
           userNumber,

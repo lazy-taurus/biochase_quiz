@@ -13,8 +13,8 @@ import LevelPage from './pages/levelPage';
 import QuizPage from './pages/QuizPage';
 import ResponsesPage from './pages/ResponsesPage';
 import AdminPage from './pages/AdminLogin';
-import UnstopContestPage from './pages/Page';
-import Timeline from './pages/unstop';
+import UnstopContestPage from './pages/waste/Page';
+import Timeline from './pages/waste/unstop';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path='/ad' element={<UnstopContestPage />} />
           <Route path='/dashboard' element={<DashboardPage />} />
           <Route path='/level' element={<LevelPage />} />
-          <Route path='/quiz' element={<QuizPage />} />
+          <Route path='/quiz/:id' element={<QuizPage />} />
           <Route path='/unstop' element={<Timeline />} />
           <Route path='/responses' element={<ResponsesPage />} />
         </Routes>

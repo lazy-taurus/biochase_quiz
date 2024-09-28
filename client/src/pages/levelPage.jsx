@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const subjectiveQuestions = [
@@ -12,7 +13,7 @@ const subjectiveQuestions = [
 
 const LevelPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState([]);
 
   const currentQuestion = subjectiveQuestions[currentQuestionIndex];
 
@@ -22,11 +23,20 @@ const LevelPage = () => {
   };
 
   const handleAnswerChange = (event) => {
+    console.log(answers);
     const updatedAnswer = event.target.value;
-    setAnswers({
-      ...answers,
-      [currentQuestionIndex]: updatedAnswer,
-    });
+
+    // Create a new answer object
+    const answerObject = {
+      ques: currentQuestionIndex + 1, // Assuming question index is 0-based
+      answer: updatedAnswer,
+    };
+
+    // Update the answers array
+    const newAnswers = [...answers];
+    newAnswers[currentQuestionIndex] = answerObject;
+
+    setAnswers(newAnswers);
   };
 
   const handleNextQuestion = () => {
@@ -39,9 +49,25 @@ const LevelPage = () => {
     setCurrentQuestionIndex((prev) => Math.max(prev - 1, 0));
   };
 
-  const handleSubmit = () => {
-    console.log('Submitted answers:', answers);
-    alert('Quiz submitted!');
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/api/v1/response',
+        {
+          answers,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // Ensure you have the JWT token stored in local storage
+          },
+        }
+      );
+      console.log('Response from server:', response.data);
+      alert('Quiz submitted successfully!');
+    } catch (error) {
+      console.error('Error submitting answers:', error);
+      alert('There was an error submitting your answers. Please try again.');
+    }
   };
 
   return (
@@ -63,7 +89,7 @@ const LevelPage = () => {
                 key={index}
                 className={`mb-2 p-2 cursor-pointer rounded-lg ${
                   currentQuestionIndex === index
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#04091b] text-white'
                     : 'bg-white border border-gray-300 hover:bg-gray-200'
                 }`}
                 onClick={() => handleQuestionClick(index)}
@@ -85,9 +111,13 @@ const LevelPage = () => {
 
             {/* Textarea for Answer */}
             <textarea
-              className='w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 mb-6'
+              className='w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04091b] mb-6'
               rows='6'
-              value={answers[currentQuestionIndex] || ''}
+              value={
+                answers[currentQuestionIndex]
+                  ? answers[currentQuestionIndex].answer
+                  : ''
+              }
               onChange={handleAnswerChange}
               placeholder='Write your answer here...'
             />
@@ -108,7 +138,7 @@ const LevelPage = () => {
               {currentQuestionIndex < subjectiveQuestions.length - 1 ? (
                 <button
                   onClick={handleNextQuestion}
-                  className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700'
+                  className='bg-[#04091b] text-white px-4 py-2 rounded hover:bg-[#04091b]'
                 >
                   Next
                 </button>
