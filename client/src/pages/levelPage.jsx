@@ -76,10 +76,10 @@ const LevelPage = () => {
       {/* Header */}
       <header className='bg-gray-800 text-white py-4 px-6 flex justify-between items-center'>
         <h1 className='text-xl font-semibold'>Subjective Quiz</h1>
-        <CountdownTimer
+        {/*<CountdownTimer
           handleSubmit={handleSubmit}
           targetTime='2024-09-28T12:39:00'
-        />
+        />*/}
       </header>
       <div className='min-h-[50hv] flex'>
         {/* Sidebar */}
