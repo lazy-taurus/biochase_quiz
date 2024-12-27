@@ -65,9 +65,11 @@ const LevelPage = () => {
       );
       console.log('Response from server:', response.data);
       alert('Quiz submitted successfully!');
+      window.location.replace('/timeline');
     } catch (error) {
       console.error('Error submitting answers:', error);
-      alert('There was an error submitting your answers. Please try again.');
+      alert(error.response.data.message);
+      window.location.replace('/timeline');
     }
   };
 
